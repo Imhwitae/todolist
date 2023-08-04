@@ -1,4 +1,7 @@
 package com.todo.todolist.repository;
 
-public interface MemberRepository {
+import com.todo.todolist.entity.Members;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface MemberRepository extends JpaRepository<Members,Long> {
 }
