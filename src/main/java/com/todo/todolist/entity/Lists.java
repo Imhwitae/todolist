@@ -19,10 +19,10 @@ public class Lists extends BaseTimeEntity {
     @Column(name = "list_content", nullable = false)
     private String listContent;
 
-    @Column(name = "list_period", nullable = false)
-    private LocalDate listPeriod;
+//    @Column(name = "list_period", nullable = false)
+//    private LocalDate listPeriod;  // 기간
 
-    @Column(name = "list_completed")
+    @Column(name = "list_completed", columnDefinition = "TINYINT default 0")
     private boolean listCompleted;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -30,10 +30,8 @@ public class Lists extends BaseTimeEntity {
     private Members members;
 
     @Builder
-    public Lists(Long listNo, String listContent, LocalDate listPeriod, boolean listCompleted, Members members) {
-        this.listNo = listNo;
+    public Lists(String listContent, LocalDate listPeriod, boolean listCompleted, Members members) {
         this.listContent = listContent;
-        this.listPeriod = listPeriod;
         this.listCompleted = listCompleted;
         this.members = members;
     }
