@@ -2,9 +2,7 @@ package com.todo.todolist.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
 @Getter
@@ -25,9 +23,8 @@ public class Members {
     @NotEmpty
     private String secession; //탈퇴여부
 
-
-    public Members(Long membersId, String loginId, String password, String name, String secession) {
-        this.membersId = membersId;
+    @Builder
+    public Members(String loginId, String password, String name, String secession) {
         this.loginId = loginId;
         this.password = password;
         this.name = name;
