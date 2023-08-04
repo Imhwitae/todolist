@@ -1,12 +1,15 @@
 package com.todo.todolist.entity;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 
 @Getter
 @Entity
+@NoArgsConstructor
 public class Lists extends BaseTimeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,4 +28,13 @@ public class Lists extends BaseTimeEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "members_id", nullable = false)
     private Members members;
+
+    @Builder
+    public Lists(Long listNo, String listContent, LocalDate listPeriod, boolean listCompleted, Members members) {
+        this.listNo = listNo;
+        this.listContent = listContent;
+        this.listPeriod = listPeriod;
+        this.listCompleted = listCompleted;
+        this.members = members;
+    }
 }
