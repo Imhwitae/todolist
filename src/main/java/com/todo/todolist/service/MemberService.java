@@ -13,7 +13,10 @@ public class MemberService {
     private final MembersRepository membersRepository;
 
     public Long join(Members members){
-        validateDuplicateMembers(members);
+        List<Members> findMember = membersRepository.findByLoginId(members.getLoginId());
+        if (!findMember.isEmpty()){
+            return -1L;
+        }
         membersRepository.save(members);
         return members.getMembersId();
     }

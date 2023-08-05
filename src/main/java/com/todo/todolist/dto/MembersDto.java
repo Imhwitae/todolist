@@ -10,9 +10,9 @@ public class MembersDto {
     private String loginId;
     private String password;
     private String name;
-    private String secession;
+    private Boolean secession;
 
-    public MembersDto(String loginId, String password, String name, String secession) {
+    public MembersDto(String loginId, String password, String name, Boolean secession) {
         this.loginId = loginId;
         this.password = password;
         this.name = name;

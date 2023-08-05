@@ -3,6 +3,7 @@ package com.todo.todolist.entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.*;
+import org.hibernate.annotations.ColumnDefault;
 
 @Entity
 @Getter
@@ -21,10 +22,11 @@ public class Members {
     @NotEmpty
     private String name; //사용자 이름
     @NotEmpty
-    private String secession; //탈퇴여부
+    @Column(columnDefinition = "boolean default 0")
+    private Boolean secession; //탈퇴여부
 
     @Builder
-    public Members(String loginId, String password, String name, String secession) {
+    public Members(String loginId, String password, String name, Boolean secession) {
         this.loginId = loginId;
         this.password = password;
         this.name = name;

@@ -1,8 +1,10 @@
 package com.todo.todolist.controller;
 
+import com.todo.todolist.dto.MemLoginDto;
 import com.todo.todolist.entity.Members;
 import com.todo.todolist.repository.MembersRepository;
 import com.todo.todolist.service.MemberService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -18,18 +20,17 @@ public class MembersController {
     private final MembersRepository membersRepository;
     private final MemberService memberService;
 
-    @GetMapping("/")
-    public String signUpForm(@ModelAttribute("members") Members members){
-        return "member/signUp";
-    }
-
     @PostMapping("/add")
-    public String singUp(@ModelAttribute("members") Members members, BindingResult bindingResult){
-        if (bindingResult.hasErrors()){
-            return "member/signUp";
-        }
+    public String singUp(@Valid @ModelAttribute("members") Members members, BindingResult bindingResult){
         memberService.join(members);
+        if (memberService.join(members) == members.getMembersId()){
+            return "member/message";
+        }
         return "member/login";
     }
 
+//    @PostMapping("/login")
+//    public String login(@ModelAttribute("loginForm") MemLoginDto memLoginDto){
+//        if
+//    }
 }
