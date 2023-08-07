@@ -7,13 +7,13 @@ import lombok.*;
 @Setter
 public class MembersDto {
     private Long membersId;
-    private String loginId;
+    private String email;
     private String password;
     private String name;
     private Boolean secession;
 
-    public MembersDto(String loginId, String password, String name, Boolean secession) {
-        this.loginId = loginId;
+    public MembersDto(String email, String password, String name, Boolean secession) {
+        this.email = email;
         this.password = password;
         this.name = name;
         this.secession = secession;
@@ -21,7 +21,7 @@ public class MembersDto {
 
     public Members toEntity(){
         return Members.builder()
-                .loginId(loginId)
+                .email(email)
                 .name(name)
                 .password(password)
                 .secession(secession).build();

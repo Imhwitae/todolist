@@ -4,7 +4,8 @@ import com.todo.todolist.entity.Members;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface MembersRepository extends JpaRepository<Members, Long> {
-    List<Members> findByLoginId(String LoginId);
+    Optional<Members> findByEmail(String email);
 }
