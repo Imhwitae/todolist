@@ -1,4 +1,4 @@
-package com.todo.todolist.dto;
+package com.todo.todolist.dto.request;
 
 import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;

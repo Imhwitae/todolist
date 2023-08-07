@@ -1,4 +1,4 @@
-package com.todo.todolist.dto;
+package com.todo.todolist.dto.response;
 
 import com.todo.todolist.entity.Members;
 import lombok.*;

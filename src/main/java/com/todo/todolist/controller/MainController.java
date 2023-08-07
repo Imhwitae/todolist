@@ -1,6 +1,6 @@
 package com.todo.todolist.controller;
 
-import com.todo.todolist.dto.MemLoginDto;
+import com.todo.todolist.dto.request.MemLoginDto;
 import com.todo.todolist.entity.Members;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
