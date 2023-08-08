@@ -25,14 +25,14 @@ public class MainController {
 //    }
 
     @GetMapping
-    public String testPage(Model model) {
+    public String mainPage(Model model) {
         SessionMember member = (SessionMember) httpSession.getAttribute("member");
 
         if (member != null) {
             model.getAttribute(member.getName());
         }
 
-        return "/";
+        return "index";
     }
 
     @GetMapping("/kakao")
