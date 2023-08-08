@@ -6,8 +6,7 @@ import lombok.Data;
 @Data
 public class MemLoginDto {
     @NotEmpty
-    private String loginId;
-
+    private String email;
     @NotEmpty
     private String password;
 }

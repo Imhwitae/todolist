@@ -27,7 +27,7 @@ public class OAuthAttributes {
     /**
      * OAuth2User에서 반환하는 사용자 정보는 Map이기 때문에 값 하나하나를 반환해야 한다.
      */
-    public  static OAuthAttributes of(String registrationId, String userNameAttributeName, Map<String, Object> attributes) {
+    public static OAuthAttributes of(String registrationId, String userNameAttributeName, Map<String, Object> attributes) {
         return ofGoogle(userNameAttributeName, attributes);
     }
 
@@ -42,14 +42,14 @@ public class OAuthAttributes {
     }
 
     /**
-     * 가입할 때 기본 권한으로 Guest를 부여
+     * 가입할 때 기본 권한으로 USER를 부여
      */
     public Members toEntity() {
         return Members.builder()
                 .name(name)
                 .email(email)
                 .picture(picture)
-                .role(Role.GUEST)
+                .role(Role.USER)
                 .build();
     }
 }
