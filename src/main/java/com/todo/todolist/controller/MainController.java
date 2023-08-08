@@ -34,5 +34,10 @@ public class MainController {
 
         return "/test";
     }
+
+    @GetMapping("/kakao")
+    public String kakaoLogin(){
+        return "kakaologin";
+    }
 }
 
