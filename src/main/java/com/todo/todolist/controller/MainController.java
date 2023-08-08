@@ -18,13 +18,13 @@ public class MainController {
 
     private final HttpSession httpSession;
 
-    @GetMapping
-    public String signUpForm(@ModelAttribute("members") Members members,
-                             @ModelAttribute("loginForm") MemLoginDto memLoginDto){
-        return "/member/login";
-    }
+//    @GetMapping
+//    public String signUpForm(@ModelAttribute("members") Members members,
+//                             @ModelAttribute("loginForm") MemLoginDto memLoginDto){
+//        return "/member/login";
+//    }
 
-    @GetMapping("/test")
+    @GetMapping
     public String testPage(Model model) {
         SessionMember member = (SessionMember) httpSession.getAttribute("member");
 
@@ -32,7 +32,7 @@ public class MainController {
             model.getAttribute(member.getName());
         }
 
-        return "/test";
+        return "/";
     }
 }
 
