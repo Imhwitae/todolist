@@ -12,19 +12,8 @@ import java.util.List;
 public class MemberService {
     private final MembersRepository membersRepository;
 
-//    public Long join(Members members){
-//        List<Members> findMember = membersRepository.findByEmail(members.getEmail());
-//        if (!findMember.isEmpty()){
-//            return -1L;
-//        }
-//        membersRepository.save(members);
-//        return members.getMembersId();
-//    }
-//
-//    private void validateDuplicateMembers(Members members){
-//        List<Members> findMember = membersRepository.findByLoginId(members.getLoginId());
-//        if (!findMember.isEmpty()){
-//            throw new IllegalStateException("이미 존재하는 회원입니다");
-//        }
-//    }
+    public Long join(Members members){
+        membersRepository.save(members);
+        return members.getMembersId();
+    }
 }

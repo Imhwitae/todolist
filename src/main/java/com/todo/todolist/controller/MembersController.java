@@ -4,6 +4,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.todo.todolist.config.auth.OAuthToken;
 import com.todo.todolist.config.auth.SessionMember;
+import com.todo.todolist.domain.user.Role;
+import com.todo.todolist.dto.response.KakaoProfile;
 import com.todo.todolist.entity.Members;
 import com.todo.todolist.repository.MembersRepository;
 import com.todo.todolist.service.MemberService;
@@ -92,7 +94,26 @@ public class MembersController {
                 String.class // 요청 시 반환되는 데이터 타입
         );
 
-        return response2.getBody();
+        ObjectMapper objectMapper2 = new ObjectMapper();
+        KakaoProfile kakaoProfile = null;
+        try {
+            kakaoProfile = objectMapper2.readValue(response2.getBody(), KakaoProfile.class);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        System.out.println("kakao이메일 = " + kakaoProfile.getKakao_account().getEmail());
+
+        Members members = Members.builder()
+                .name(kakaoProfile.getProperties().getNickname())
+                .email(kakaoProfile.getKakao_account().getEmail())
+                .picture(kakaoProfile.getProperties().profile_image)
+                .role(Role.USER)
+                .secession(true)
+                .build();
+
+        memberService.join(members);
+
+        return "redirect:index";
     }
 
 
