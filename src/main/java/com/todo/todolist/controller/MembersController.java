@@ -1,21 +1,14 @@
 package com.todo.todolist.controller;
 
-import com.todo.todolist.config.auth.SessionMember;
-import com.todo.todolist.entity.Members;
 import com.todo.todolist.repository.MembersRepository;
 import com.todo.todolist.service.MemberService;
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+
+import java.io.IOException;
 
 @Controller
-@RequestMapping("/members")
 @RequiredArgsConstructor
 public class MembersController {
     private final MembersRepository membersRepository;
@@ -29,5 +22,11 @@ public class MembersController {
 //        }
 //        return "/";
 //    }
+
+    /**
+     * 유저 소셜 로그인으로 리다이렉트 해주는 url
+     * [GET] /accounts/auth
+     * @return void
+     */
 
 }

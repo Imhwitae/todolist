@@ -37,17 +37,17 @@ public class MainController {
         return "kakaologin";
     }
 
-    @PostMapping
-    public String mainPage(Model model) {
-        SessionMember member = (SessionMember) httpSession.getAttribute("member");
-
-        model.getAttribute(member.getEmail());
-
-        if (member == null) {
-            return "redirect:/";
-        }
-
-        return "/todo_main";
-    }
+//    @PostMapping
+//    public String mainPage(Model model) {
+//        SessionMember member = (SessionMember) httpSession.getAttribute("member");
+//
+//        model.getAttribute(member.getEmail());
+//
+//        if (member == null) {
+//            return "redirect:/";
+//        }
+//
+//        return "/todo_main";
+//    }
 }
 
