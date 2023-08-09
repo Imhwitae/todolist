@@ -50,6 +50,7 @@ public class OAuthAttributes {
                 .email(email)
                 .picture(picture)
                 .role(Role.USER)
+                .secession(true)
                 .build();
     }
 }

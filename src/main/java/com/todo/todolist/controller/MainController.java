@@ -19,16 +19,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MainController {
 
     private final HttpSession httpSession;
-    private final LoginService loginService;
-
-//    @GetMapping
-//    public String signUpForm(@ModelAttribute("members") Members members,
-//                             @ModelAttribute("loginForm") MemLoginDto memLoginDto){
-//        return "/member/login";
-//    }
 
     @GetMapping
-    public String loginPage() {
+    public String loginPage(Model model) {
+
+        SessionMember member = (SessionMember) httpSession.getAttribute("member");
+
+        if (member != null) {
+            model.addAttribute("memberName", member.getName());
+        }
+
         return "index";
     }
 
@@ -41,13 +41,17 @@ public class MainController {
 //    public String mainPage(Model model) {
 //        SessionMember member = (SessionMember) httpSession.getAttribute("member");
 //
-//        model.getAttribute(member.getEmail());
-//
-//        if (member == null) {
-//            return "redirect:/";
+//        if (member != null) {
+//            model.addAttribute("memberName", member.getName());
 //        }
 //
-//        return "/todo_main";
+//        return "redirect:/todo_main";
 //    }
+
+    @GetMapping("/auth")
+    public String redirctTodoMain() {
+        System.out.println("로그인");
+        return "redirect:/todo_main";
+    }
 }
 

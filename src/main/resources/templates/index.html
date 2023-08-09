@@ -24,7 +24,7 @@
     </form>
   </div>
   <div class="form-container sign-in-container">
-    <form th:action="@{/}" th:object="${loginForm}" method="post">
+    <form th:action="@{/todo_main}" th:object="${loginForm}" method="post">
       <h1>로그인</h1>
 <!--      <div class="social-container">-->
 <!--        <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>-->
@@ -51,6 +51,7 @@
       <div class="overlay-panel overlay-right">
         <h1>환영합니다!</h1>
         <p>저희 서비스를 이용하고 싶으시면 회원가입을 해주세요.</p>
+        <input th:value="${memberName}">
 <!--        <button class="ghost" id="signUp">Sign Up</button>-->
       </div>
     </div>

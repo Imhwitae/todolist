@@ -23,7 +23,6 @@ public class Members {
     private String name; //사용자 이름
     private String picture;
     @NotEmpty
-    @Column(columnDefinition = "boolean default 0")
     private Boolean secession; //탈퇴여부
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
