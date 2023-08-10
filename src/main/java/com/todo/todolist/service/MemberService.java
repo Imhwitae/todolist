@@ -13,6 +13,11 @@ public class MemberService {
     private final MembersRepository membersRepository;
 
     public Long join(Members members){
+        Members findMember = membersRepository.findByEmail(members.getEmail())
+                .orElse(null);
+        if (findMember != null){
+            throw new IllegalStateException("이미 존재하는 회원입니다");
+        }
         membersRepository.save(members);
         return members.getMembersId();
     }
