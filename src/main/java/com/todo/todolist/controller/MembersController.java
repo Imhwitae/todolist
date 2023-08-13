@@ -31,15 +31,6 @@ public class MembersController {
     private final KakaoToken kakaoToken;
     private final KakaoUserInfo kakaoUserInfo;
 
-//    @PostMapping("/")
-//    public String singUp(@Valid @ModelAttribute("members") Members members, BindingResult bindingResult){
-//        memberService.join(members);
-//        if (memberService.join(members) == members.getMembersId()){
-//            return "member/message";
-//        }
-//        return "/";
-//    }
-
     @GetMapping("/kakao/login")
     public String kakaoCallback(String code, Model model) {
 
