@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/default}">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -7,6 +9,20 @@
           href="/css/login.css" rel="stylesheet">
 </head>
 <body>
+<!-- 사용자 스크립트 추가 -->
+<th:block layout:fragment="script">
+
+  <script th:inline="javascript">
+    //회원가입 실패시 에러 메시지 출력
+    $(document).ready(function(){
+      var errorMessage = [[${errorMessage}]];
+      if(errorMessage != null){
+        alert(errorMessage);
+      }
+    });
+  </script>
+
+</th:block>
 <div class="container" id="container">
   <div class="form-container sign-up-container">
     <form th:action="@{/members/add}" th:object="${members}" method="post">
@@ -37,7 +53,7 @@
 <!--      <a href="#">아이디/ 비밀번호 찾기</a>-->
 <!--      <button type="submit">LogIn</button>-->
       <a href="/oauth2/authorization/google"><img th:src="@{/css/image/btn_google_signin_light_normal_web.png}"></a>
-      <a href="https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=36ecfeebefb8d78911ac4c066d4a9502&redirect_uri=http://localhost:8080/kakao/login">
+      <a href="https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=bd418e40192dec1008813e6eab065492&redirect_uri=http://localhost:8080/kakao/login">
         <img th:src="@{/css/image/kakao_login_medium_narrow.png}"height="45" width="191"/></a>
     </form>
   </div>
