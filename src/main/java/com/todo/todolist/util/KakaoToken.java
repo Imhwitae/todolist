@@ -29,7 +29,7 @@ public class KakaoToken {
         // body는 보통 key, value의 쌍으로 이루어지기 때문에 자바에서 제공해주는 MultiValueMap 타입을 사용한다.
         MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
         params.add("grant_type", "authorization_code");
-        params.add("client_id", "36ecfeebefb8d78911ac4c066d4a9502");
+        params.add("client_id", "bd418e40192dec1008813e6eab065492");
         params.add("redirect_uri", "http://localhost:8080/kakao/login");
         params.add("code", code);
 

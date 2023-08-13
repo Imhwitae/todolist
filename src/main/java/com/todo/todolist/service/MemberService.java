@@ -13,12 +13,21 @@ public class MemberService {
     private final MembersRepository membersRepository;
 
     public Long join(Members members){
-        Members findMember = membersRepository.findByEmail(members.getEmail())
-                .orElse(null);
-        if (findMember != null){
-            throw new IllegalStateException("이미 존재하는 회원입니다");
-        }
+//        Members findMember = membersRepository.findByEmail(members.getEmail())
+//                .orElse(null);
+//        if (findMember != null){
+//            throw new IllegalStateException("이미 존재하는 회원입니다");
+//        }
+        validateDuplicateMember(members);
         membersRepository.save(members);
         return members.getMembersId();
+    }
+
+    private void validateDuplicateMember(Members member) {
+        Members findMember = membersRepository.findByEmail(member.getEmail())
+                .orElse(null);;
+        if (findMember != null) {
+            throw new IllegalStateException("이미 가입된 회원입니다.");
+        }
     }
 }
