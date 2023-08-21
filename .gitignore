@@ -28,6 +28,7 @@ out/
 
 application-local.properties
 application-oauth.properties
+todolistKey.json
 
 ### NetBeans ###
 /nbproject/private/
