@@ -3,7 +3,7 @@ package com.todo.todolist.service;
 import java.util.List;
 import java.util.Optional;
 
-import com.todo.todolist.config.auth.SessionMember;
+//import com.todo.todolist.config.auth.SessionMember;
 import com.todo.todolist.entity.Members;
 import com.todo.todolist.repository.MembersRepository;
 import lombok.RequiredArgsConstructor;

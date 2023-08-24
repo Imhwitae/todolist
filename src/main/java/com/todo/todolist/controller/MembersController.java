@@ -3,7 +3,7 @@ package com.todo.todolist.controller;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.todo.todolist.config.auth.OAuthToken;
-import com.todo.todolist.config.auth.SessionMember;
+//import com.todo.todolist.config.auth.SessionMember;
 import com.todo.todolist.domain.user.Role;
 import com.todo.todolist.dto.response.KakaoProfile;
 import com.todo.todolist.entity.Members;

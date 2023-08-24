@@ -1,6 +1,6 @@
 package com.todo.todolist.controller;
 
-import com.todo.todolist.config.auth.SessionMember;
+//import com.todo.todolist.config.auth.SessionMember;
 import com.todo.todolist.dto.request.MemLoginDto;
 import com.todo.todolist.entity.Members;
 import com.todo.todolist.service.LoginService;
@@ -20,17 +20,17 @@ public class MainController {
 
     private final HttpSession httpSession;
 
-    @GetMapping
-    public String loginPage(Model model) {
-
-        SessionMember member = (SessionMember) httpSession.getAttribute("member");
-
-        if (member != null) {
-            model.addAttribute("memberName", member.getName());
-        }
-
-        return "index";
-    }
+//    @GetMapping
+//    public String loginPage(Model model) {
+//
+//        SessionMember member = (SessionMember) httpSession.getAttribute("member");
+//
+//        if (member != null) {
+//            model.addAttribute("memberName", member.getName());
+//        }
+//
+//        return "index";
+//    }
 
     @GetMapping("/kakao")
     public String kakaoLogin(){

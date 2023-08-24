@@ -28,7 +28,7 @@ out/
 
 application-local.properties
 application-oauth.properties
-todolistKey.json
+serviceAccountKey.json
 
 ### NetBeans ###
 /nbproject/private/
